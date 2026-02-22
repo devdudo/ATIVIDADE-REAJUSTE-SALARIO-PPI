@@ -5,7 +5,9 @@ const port = 3000;
 
 const server = express();
 
-function calcularReajuste(idade, sexo, salarioBase, anoContrato, matricula) {
+//função com os devidos parâmetros para calcular o reajuste salarial
+
+function calcularReajuste(idade, sexo, salarioBase, anoContrato) {
     const anoAtual = new Date().getFullYear();
     const tempoEmpresa = anoAtual - anoContrato;
 
@@ -98,10 +100,7 @@ server.get('/reajuste', (req, res) => {
     const anocontrato = parseInt(req.query.anocontrato);
     const matricula = parseInt(req.query.matricula);
 
-    if (
-        isNaN(idade) || idade <= 16 ||
-        (sexo !== 'M' && sexo !== 'F') ||
-        isNaN(salariobase) || salariobase <= 0 ||
+    if (isNaN(idade) || idade <= 16 || (sexo !== 'M' && sexo !== 'F') || isNaN(salariobase) || salariobase <= 0 ||
         isNaN(anocontrato) || anocontrato <= 1960 ||
         isNaN(matricula) || matricula <= 0
     ) {
@@ -112,7 +111,7 @@ server.get('/reajuste', (req, res) => {
         return;
     }
 
-    const resultado = calcularReajuste(idade, sexo, salariobase, anocontrato, matricula);
+    const resultado = calcularReajuste(idade, sexo, salariobase, anocontrato);
 
     if (!resultado) {
         res.send(`<h2>Erro: Idade fora da faixa permitida (18 a 99 anos).</h2>`);
@@ -134,5 +133,5 @@ server.get('/reajuste', (req, res) => {
 });
 
 server.listen(port, host, () => {
-    console.log(`Server running at http://${host}:${port}/`);
+    console.log(`Servidor funcionando em http://${host}:${port}/`);
 });
