@@ -1,0 +1,29 @@
+{
+  "name": "atividade-reajuste-salario-ppi",
+  "version": "1.0.0",
+  "description": "Atividade reajuste - PPI.",
+  "keywords": [
+    "express",
+    "node",
+    "ppi"
+  ],
+  "homepage": "https://github.com/devdudo/ATIVIDADE-REAJUSTE-SALARIO-PPI#readme",
+  "bugs": {
+    "url": "https://github.com/devdudo/ATIVIDADE-REAJUSTE-SALARIO-PPI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdudo/ATIVIDADE-REAJUSTE-SALARIO-PPI.git"
+  },
+  "license": "ISC",
+  "author": "Eduardo de Lucca",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
